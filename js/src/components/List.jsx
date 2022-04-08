@@ -43,29 +43,33 @@ export default function List({ displayList, imageRender }) {
         {!imageRender && (
           <header className="header--section flex-space-between">
             <h2 className="list__item--active">{displayList.text}</h2>
-            <span>
-              <Button
-                classCss="btn-icon--add"
-                text="Item hinzufügen"
-                onClickHeandler={() => showModal(true)}
-              />
-            </span>
+            {displayList.type !== 'done' && (
+              <span>
+                <Button
+                  classCss="btn-icon--add"
+                  text="Item hinzufügen"
+                  onClickHeandler={() => showModal(true)}
+                />
+              </span>
+            )}
           </header>
         )}
         <ul className="list">
-          {getDisplayList(displayList).length === 0 && (
-            <li>
-              <span>
-                <button
-                  className="list__item-first__btn"
-                  onClick={() => showModal(true)}
-                >
-                  Ersten Listeneintrag anlegenn
-                </button>
-              </span>
-              {imageRender && <NasaImage />}
-            </li>
-          )}
+          {getDisplayList(displayList).length === 0 &&
+            displayList.type !== 'done' && (
+              <li>
+                <span>
+                  <button
+                    className="list__item-first__btn"
+                    onClick={() => showModal(true)}
+                  >
+                    Hier Listeneintrag anlegenn
+                  </button>
+                </span>
+                {imageRender && <NasaImage />}
+              </li>
+            )}
+          {displayList.type === 'done' && <p>Leer hier 🧐.</p>}
           {getDisplayList(displayList.type).map((item, index) => (
             <Item key={item.itemId} {...item} indexNr={index} />
           ))}

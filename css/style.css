@@ -403,6 +403,10 @@ body {
   margin-bottom: 1.2rem;
   margin-bottom: var(--margin-large);
 }
+.contend .list--current p {
+  margin: 1.2rem;
+  margin: var(--margin-large);
+}
 .contend .list--done {
   background-color: rgb(241, 247, 252);
   background-color: var(--color-light);
@@ -437,7 +441,7 @@ body {
   width: 100%;
   position: relative;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(0, -30%);
 }
 
 .list {
