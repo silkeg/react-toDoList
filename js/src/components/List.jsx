@@ -69,7 +69,8 @@ export default function List({ displayList, imageRender }) {
                 {imageRender && <NasaImage />}
               </li>
             )}
-          {displayList.type === 'done' && <p>Leer hier 🧐.</p>}
+          {displayList.type === 'done' &&
+            getDisplayList('done').length === 0 && <p>Leer hier 🧐.</p>}
           {getDisplayList(displayList.type).map((item, index) => (
             <Item key={item.itemId} {...item} indexNr={index} />
           ))}
