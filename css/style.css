@@ -434,8 +434,10 @@ body {
   z-index: 10;
 }
 .contend .contend--wrapper.nasa-image li img {
-  max-width: 100%;
+  width: 100%;
   position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .list {
