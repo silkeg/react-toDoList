@@ -1,15 +1,16 @@
 {
   "scripts": {
     "dev": "npm-run-all --parallel server sass-dev postcss-dev parcel-dev",
-    "build": "npm-run-all --sequential clean sass-build postcss-build",
-    "sass-dev": "sass sass:temp --watch --embed-source-map",
-    "sass-build": "sass sass:temp --embed-source-map",
-    "postcss-dev": "postcss temp/*.css --dir css --use postcss-preset-env --map --watch",
-    "postcss-build": "postcss temp/*.css --dir css --use postcss-preset-env cssnano --map",
-    "server": "browser-sync start --server --watch --files '*.html, css/*.css, js/dist/*.js' ",
-    "parcel-dev": "parcel watch js/src/index.jsx --dist-dir js/dist",
-    "parcel-build": "parcel build js/src/index.jsx --dist-dir js/dist",
-    "clean": "del-cli js/dist/*"
+    "build": "npm-run-all --sequential clean sass-build postcss-build clean-temp parcel-build",
+    "sass-dev": "sass src/sass:src/temp --watch --embed-source-map",
+    "sass-build": "sass src/sass:src/temp --embed-source-map",
+    "postcss-dev": "postcss src/temp/*.css --dir dist/css --use postcss-preset-env --map --watch",
+    "postcss-build": "postcss src/temp/*.css --dir dist/css --use postcss-preset-env cssnano --map",
+    "server": "browser-sync start --server --watch --files '*.html, dist/css/*.css, dist/js/*.js' ",
+    "parcel-dev": "parcel watch src/js/index.jsx --dist-dir dist/js",
+    "parcel-build": "parcel build src/js/index.jsx --dist-dir dist/js",
+    "clean": "del-cli dist/",
+    "clean-temp": "del-cli src/temp/"
   },
   "devDependencies": {
     "@types/react": "^17.0.40",
