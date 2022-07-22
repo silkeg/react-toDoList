@@ -3,7 +3,6 @@ import { useCurrentListStateContext } from '../store/currentListStateContext';
 
 import Button from './Button';
 import useToggle from '../hooks/useToggle';
-import Jocks from './Jocks';
 
 export default function Aside({ displayList, setDisplayList }) {
   // ItemListe
