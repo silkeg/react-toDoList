@@ -5,9 +5,9 @@ import Input from './Input';
 import { useModalDispatchContext } from '../store/modalContext';
 import { useItemsDispatchContext } from '../store/itemContext';
 
-// wenn der Parameter im Modal(Parameter){} = vorhanden ist => dann wird Item editiert (Werte vom Item übergeben)
-// itemValue = {itemText: 'Zitrone', itemId: 1649363055574}
-// Parameter=null dh es wird "nur" ein neues Item angelegt
+// if there is a parameter (Modal(Parameter){}), then the itme is edited (values of the item is dispatch)
+// itemValue = {itemText: 'something', itemId: 1649363055574}
+// parameter=null, that means creating one new item
 export default function Modal({ itemValue }) {
   const showModal = useModalDispatchContext();
   const itemsDispatch = useItemsDispatchContext();
@@ -15,7 +15,7 @@ export default function Modal({ itemValue }) {
   const [inputValue, setInputValue] = useState('');
   const [markedValue, setMarkedValue] = useState(false);
 
-  //legt ListenItem an nachPrüfung
+  // creating Item after checking
   function store() {
     if (inputValue.length && !itemValue.itemId) {
       const newItem = {
@@ -24,7 +24,7 @@ export default function Modal({ itemValue }) {
         itemId: Date.now(),
         itemType: 'current',
       };
-      itemsDispatch({ type: 'add', newItem }); // Schickt neuen Eintag an die ItemsListe
+      itemsDispatch({ type: 'add', newItem }); // new item will be display in the list
       showModal(false);
     }
     if (itemValue.itemId) {
@@ -33,7 +33,7 @@ export default function Modal({ itemValue }) {
       showModal(false);
     }
   }
-  // Wenn Return dann wird nach Prüfung neues ListenItem angeleigt
+  // after user's return and the check, new item will be created
   function returnEvent(e) {
     var keycode = e.keyCode ? e.keyCode : e.which;
     if (keycode == '13') {

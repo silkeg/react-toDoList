@@ -1,1 +1,1 @@
-## react and storyboot project
+## react project

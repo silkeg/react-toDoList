@@ -23,15 +23,15 @@ export default function NasaImage() {
     };
     getImage();
     return () => {
-      // react ermahnt hier die CleanUp Funktionalität zu benutzen
-      // als RequestFehler 429 => zu viele Abrufe war - Limit erreicht
+      // react recommends using the CleanUp functionality
+      // requestError 429 => too many requests - limit reached
       getImage = null;
     };
   }, []);
 
-  // wenn kein Bild geladen werden kann, weil zB zu viele Requests, dann soll nix passieren
-  // leider nur sehr wenig Request möglich, sonst muss man sich anmelden
-  // hätte vielleicht doch ein Pixum Image nehmen sollen, dann hätte ich auch width und height setzen können
+  // if no image, then nothing should happen
+  // unfortunately only very few requests possible, otherwise you have to log in
+
   //if (!imageState) {
   //return <LoaddingSpinner /* message="Wird geladen…" */ />;
   //}

@@ -1,6 +1,6 @@
 import { useState, useReducer, useEffect, useRef } from 'react';
 
-// Fehlermeldungen für die Usereingabe
+// error messages for the user's input
 function errorMassageReducer(currentErrorState, error) {
   switch (error.type) {
     case 'short':
@@ -26,15 +26,15 @@ export default function Input({
   const inputRef = useRef();
 
   useEffect(() => {
-    // überprüft was User eintippt und ob der Vorgaben entspricht
-    // Timeout = Verzögerer
-    // Inputverzögerer vlt im wirklichen Projekt nicht verwenden,
-    // wenn man beim editieren zu schnell Return macht, dann wird nicht gespeichert
-    // bzw beim anlegen des Items muss man warten bis man speichern kann
+    // checks what the user types and whether it corresponds to the specifications
+    // Timeout = retarder
+    // retarder -> maybe don't use input in the real project
+    // the problem: if you return too quickly when editing, the item is not saved
+    // and if you  creating a new item, you have to wait for saving
 
     const idTimeout = setTimeout(() => {
-      // braucht die useRef sonst geht die JS Pattern Überprüfunge nicht
-      // im Zusammenhang mit dem Verzögerer
+      // useRef is needed, because of the check of the js pattern
+      // in the context with the retarder
       const inputField = inputRef.current;
 
       inputField.pattern = '[0-9A-Za-z.-ß?üäöÜÄÖ ]{3,363}';

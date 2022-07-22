@@ -9,7 +9,7 @@ export default function Aside({ displayList, setDisplayList }) {
   // ItemListe
   const items = useItemsStateContext();
 
-  // für die Anzeige der Anzahl
+  // display the number
   const markedItemsCount = items.filter(({ itemMarked }) => itemMarked).length;
   const doneItemsCount = items.filter(
     ({ itemType }) => itemType === 'done'
@@ -66,9 +66,6 @@ export default function Aside({ displayList, setDisplayList }) {
           <span>{doneItemsCount}</span>
         </li>
       </ul>
-
-      {/* Ist zu viel vom Design, weniger ist mehr, funktioniert aber */}
-      {/* <Jocks /> */}
     </aside>
   );
 }

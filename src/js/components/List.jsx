@@ -14,10 +14,11 @@ export default function List({ displayList, imageRender }) {
   const items = useItemsStateContext(); // ItemsList
   const itemsDispatch = useItemsDispatchContext();
 
-  // List Done wird zusätzlich unter die Current List angezeigt, aber nur wenn Eintärge vorhanden
+  // list done is additionally displayed under the current list, but only if there are entries
   const isDoneList = items.some((item) => item.itemType === 'done');
 
-  // Regelt die Anzeige, welche Liste angezeigt wird, je nach dem was im Menü auf der Seite angeklickt wurde
+  // controls which list is displayed
+  // depends on the user's click
   function getDisplayList() {
     switch (displayList.type) {
       case 'all':

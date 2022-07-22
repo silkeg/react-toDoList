@@ -5,7 +5,7 @@ import { useItemsStateContext } from '../store/itemContext';
 
 export default function Content({ displayList }) {
   const items = useItemsStateContext();
-  // wenn es gar keine Items gibt, wird das NasaBild angezeigt
+  // if there is no item, the image (nasa) will be display
   const [imageRender, setImageRender] = useState(true);
   useEffect(() => {
     items.length > 0 ? setImageRender(false) : setImageRender(true);

@@ -75,8 +75,7 @@ export default function Layout({ children }) {
   }, [colorState]);
 
   function pageTitleHeandler(e) {
-    // wenn man auf Überschrift klick, kann man diese anpassen
-    // man beendet und bestätigt die Eingabe durch Return
+    // if the headline is clicked, you can customise them, finish with return
     var keycode = e.keyCode ? e.keyCode : e.which;
     if (keycode == '13') {
       localStorage.setItem(

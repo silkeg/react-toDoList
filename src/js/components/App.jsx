@@ -12,7 +12,7 @@ import Modal from './Modal';
 export default function App() {
   const modalState = useModalStateContext();
 
-  // Wenn im Menü geklickt wird - übermittelt was geklickt wurde
+  // on click menu item - transmits whitch one ist clicked
   const [displayList, setDisplayList] = useState({
     type: 'all',
     text: 'Alle ToDos',

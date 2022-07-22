@@ -14,9 +14,9 @@ export default function Item({
   const showModal = useModalDispatchContext();
   const itemsDispatch = useItemsDispatchContext(); // ItemsListe
 
-  // langer Text wird ausgepunktet und auf Klick komplett angezeigt
-  // diese Variante zählt Zeichenanzahl, zu überlegen ob man Wörter zählt, damit
-  // nicht im Wort ausgepunktet wird oder beide kombinieren
+  // long text is dotted and displayed on click
+  // by counts the number of characters (maybe counting word is better, avoid dots in the word)
+
   const [shortTextState, toggleText] = useToggle(true);
   function getShortText(text, maxWords = 10, suffix = ' ...') {
     const letter = Array.from(text);
@@ -25,7 +25,7 @@ export default function Item({
     return cuttedText.reduce((text, letter) => text + letter, '') + suffix;
   }
 
-  // zum disabelm der hoch und runter Button wenn erste bzw lezte Element in Liste
+  // disable the up and down button, if the item is the first or last one
   const isFirst = { ...useCurrentListStateContext()[0] }.itemId === itemId;
   const isLast =
     { ...useCurrentListStateContext()[useCurrentListStateContext().length - 1] }
