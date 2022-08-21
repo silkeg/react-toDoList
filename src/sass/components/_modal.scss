@@ -1,0 +1,66 @@
+@use '../base' as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 22;
+  > div {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    @media ($medium) {
+      left: 50%;
+    }
+    transform: translate(-50%, -50%);
+    width: 75%;
+    max-width: rem(333);
+    background-color: white;
+    border-radius: var(--corner);
+    padding: var(--margin-large);
+    white-space: nowrap;
+    //max-width: 96%;
+    > div {
+      flex-grow: 1;
+    }
+  }
+  input {
+    height: 2rem;
+    width: 93%;
+    font-size: inherit;
+    border: none;
+    background-color: var(--color-light);
+    padding: var(--margin-small);
+    border-radius: var(--btn-icon-corner);
+    margin-right: var(--margin-large);
+    vertical-align: top;
+    &:invalid {
+      background-color: rgb(201, 5, 5);
+      color: white;
+    }
+    &:invalid + p {
+      position: absolute;
+      white-space: normal;
+      left: var(--margin-large);
+      right: var(--margin-large);
+      font-size: inherit;
+      background-color: #fff;
+      border: rem(1) solid rgb(201, 5, 5);
+      border-radius: var(--btn-icon-corner);
+      margin-top: var(--margin-medium);
+      padding: var(--margin-medium);
+    }
+    &:valid + p {
+      display: none;
+    }
+  }
+  .btn-icon--delete {
+    position: absolute;
+    right: rem(-50);
+  }
+}

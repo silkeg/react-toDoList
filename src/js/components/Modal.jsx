@@ -6,14 +6,14 @@ import { useModalDispatchContext } from '../store/modalContext';
 import { useItemsDispatchContext } from '../store/itemContext';
 
 // if there is a parameter (Modal(Parameter){}), then the itme is edited (values of the item is dispatch)
-// itemValue = {itemText: 'something', itemId: 1649363055574}
+// itemValue = {itemText: 'something', itemId: 1649363055574, itemMarked: true/false}
 // parameter=null, that means creating one new item
 export default function Modal({ itemValue }) {
   const showModal = useModalDispatchContext();
   const itemsDispatch = useItemsDispatchContext();
 
   const [inputValue, setInputValue] = useState('');
-  const [markedValue, setMarkedValue] = useState(false);
+  const [markedValue, setMarkedValue] = useState(itemValue.itemMarked);
 
   // creating Item after checking
   function store() {
@@ -27,7 +27,7 @@ export default function Modal({ itemValue }) {
       itemsDispatch({ type: 'add', newItem }); // new item will be display in the list
       showModal(false);
     }
-    if (itemValue.itemId) {
+    if (inputValue.length && itemValue.itemId) {
       const itemId = itemValue.itemId;
       itemsDispatch({ type: 'edit', itemId, inputValue });
       showModal(false);
@@ -36,7 +36,7 @@ export default function Modal({ itemValue }) {
   // after user's return and the check, new item will be created
   function returnEvent(e) {
     var keycode = e.keyCode ? e.keyCode : e.which;
-    if (keycode == '13') {
+    if (keycode == '13' && inputValue.length) {
       store();
     }
   }
@@ -60,7 +60,7 @@ export default function Modal({ itemValue }) {
             markedValue && 'btn-icon--marked--active'
           }`}
           text="Markieren"
-          onClickHeandler={() => setMarkedValue(true)}
+          onClickHeandler={() => setMarkedValue(!markedValue)}
         />
         <Button
           isDisabled={inputValue.length < 3}

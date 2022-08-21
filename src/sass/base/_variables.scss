@@ -1,0 +1,35 @@
+@use 'functions' as *;
+
+$medium-min: rem(768);
+$medium: 'width >= #{$medium-min}';
+
+:root {
+  --color-basic: rgb(7, 87, 129);
+  --color-basic-light: rgb(120, 198, 240);
+  --color-medium: rgb(212, 225, 238);
+  --color-light: rgb(241, 247, 252);
+  --color-highlighted: rgb(139, 207, 4);
+  --color-highlighted-active: rgb(207, 244, 132);
+
+  --btn-icon-bg: var(--color-medium);
+  --btn-icon-bg-hover: var(--color-basic-light);
+
+  --corner: #{rem(20)};
+  --btn-icon-corner: #{rem(3)};
+
+  --margin-large: 1.2rem;
+  --margin-medium: 0.6rem;
+  --margin-small: 0.3rem;
+}
+
+html.red:root {
+  --color-basic: rgb(0, 116, 139);
+  --color-basic-light: rgb(233, 201, 201);
+  --color-highlighted: rgb(41, 77, 97);
+  --color-highlighted-active: rgb(118, 176, 208);
+}
+
+html.dark:root {
+  --color-basic: rgb(31, 44, 58);
+  --color-basic-light: rgb(84, 116, 139);
+}

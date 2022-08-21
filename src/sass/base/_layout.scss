@@ -1,0 +1,22 @@
+@use 'index' as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  font: 100%/1.5rem Arial, Helvetica, sans-serif;
+  user-select: none;
+  background-color: var(--color-basic-light);
+  padding: 5%;
+  color: var(--color-basic);
+  @media ($medium) {
+    padding: 5% 10%;
+  }
+}

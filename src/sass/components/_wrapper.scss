@@ -1,0 +1,35 @@
+@use '../base' as *;
+
+.wrapper {
+  background-color: var(--color-basic);
+  border-radius: var(--corner);
+  box-shadow: rem(3) rem(3) rem(12) rem(6) rgba(0, 0, 0, 0.2);
+  padding: 4% 2%;
+  min-height: rem(525);
+  position: relative;
+  @media ($medium) {
+    height: 100%;
+  }
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: #ff8800 #fff;
+  scrollbar-width: thin;
+
+  ::-webkit-scrollbar {
+    width: rem(3);
+    height: rem(3);
+  }
+  ::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-basic-light);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-basic-light);
+  }
+  @media ($medium) {
+    display: flex;
+    flex-direction: column;
+  }
+}

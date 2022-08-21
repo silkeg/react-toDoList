@@ -1,0 +1,72 @@
+@use '../base' as *;
+
+.sidebar {
+  &.sidebar--hidden {
+    padding: 0;
+    margin-top: 4rem;
+    max-width: auto;
+    @media ($medium) {
+      margin-top: 0;
+      margin-right: 2rem;
+      width: auto;
+      max-width: 0rem;
+    }
+    position: relative;
+    .header--sidebar {
+      padding: 0;
+    }
+    .header--sidebar h2,
+    .header--sidebar ~ * {
+      display: none;
+    }
+    .header--sidebar button {
+      position: absolute;
+      right: 1rem;
+      top: -2rem;
+
+      @media ($medium) {
+        top: 2rem;
+        right: auto;
+      }
+    }
+  }
+  max-width: 500rem;
+  @media ($medium) {
+    transition: max-width 3s;
+  }
+  padding: 3% 2%;
+  margin-top: var(--margin-large);
+  margin-bottom: var(--margin-large);
+  // height: rem(170);
+  .header--sidebar {
+    padding-right: var(--margin-medium);
+  }
+  .list {
+    overflow-y: auto;
+    margin-top: var(--margin-large);
+    li:not(.list__item--active) {
+      cursor: pointer;
+    }
+  }
+  @media ($medium) {
+    width: 30%;
+    margin-bottom: 0;
+    height: auto;
+  }
+
+  .jocks {
+    margin-top: var(--margin-large);
+    border-top: rem(3) solid var(--color-highlighted);
+    padding-top: var(--margin-large);
+    display: flex;
+    flex-grow: 1;
+    p {
+      align-self: flex-end;
+      max-height: 8rem;
+      overflow-y: auto;
+    }
+  }
+  .lds-spinner {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,59 @@
+@use '../base' as *;
+
+.menue--wrapper {
+  &:hover {
+    h4 {
+      background-color: var(--color-basic);
+    }
+    .menue {
+      max-width: 90%;
+      padding: var(--margin-medium) 0 var(--margin-medium) var(--margin-large);
+      border-radius: rem(12) 0 0 rem(12);
+    }
+  }
+  .menue--btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-left: rem(25);
+    width: 0;
+    overflow: hidden;
+    cursor: pointer;
+    height: 3.3rem;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: rem(14);
+    }
+    &::before {
+      top: rem(12);
+      border: rem(4) solid var(--color-basic);
+      border-width: rem(4) 0;
+      height: rem(16);
+      width: rem(4);
+    }
+    &::after {
+      top: rem(22);
+      width: rem(4);
+      height: rem(4);
+      background-color: var(--color-basic);
+    }
+  }
+  .menue {
+    background-color: var(--color-basic);
+    white-space: nowrap;
+    transition: max-width 0.8s, padding 0.8s, border-radius 0.8s;
+    max-width: 0;
+    overflow: hidden;
+    height: 3.3rem;
+    position: absolute;
+    right: rem(25);
+    top: 0;
+    padding: var(--margin-medium) 0;
+    border-radius: 0;
+    &:hover {
+      overflow: visible;
+    }
+  }
+}

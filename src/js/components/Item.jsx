@@ -43,12 +43,16 @@ export default function Item({
             <Button
               classCss=" btn-icon--edit"
               text="Eintrag anpassen"
-              onClickHeandler={() => showModal({ itemText, itemId })}
+              onClickHeandler={() =>
+                showModal({ itemText, itemId, itemMarked })
+              }
             />
           )}
           {itemType === 'current' && (
             <Button
-              classCss="btn-icon--marked"
+              classCss={`btn-icon--marked ${
+                itemMarked && 'btn-icon--marked--active'
+              }`}
               text="Markieren"
               onClickHeandler={() => itemsDispatch({ type: 'marked', itemId })}
             />

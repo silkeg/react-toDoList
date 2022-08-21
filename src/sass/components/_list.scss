@@ -1,0 +1,49 @@
+@use '../base' as *;
+
+.list {
+  list-style: none;
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: var(--margin-medium);
+    position: relative;
+    min-height: 3.3rem;
+    &.list--marked {
+      background-color: var(--color-basic-light);
+    }
+    .list__item-first__btn {
+      padding: 5%;
+      @media ($medium) {
+        padding: 10% 20%;
+      }
+      background-color: var(--color-highlighted);
+      border: none;
+      border-radius: var(--btn-icon-corner);
+      white-space: nowrap;
+      @media (max-width: 25rem) {
+        white-space: normal;
+      }
+      font-size: inherit;
+      color: white;
+      cursor: pointer;
+    }
+    &:not(:first-child)::after {
+      content: '';
+      position: absolute;
+      border-top: rem(1) dotted var(--color-medium);
+      left: var(--margin-medium);
+      right: var(--margin-medium);
+      top: 0;
+      height: rem(1);
+    }
+    .list__text {
+      cursor: pointer;
+    }
+  }
+}
+
+.sidebar li:hover {
+  cursor: pointer;
+  background-color: var(--color-medium);
+}

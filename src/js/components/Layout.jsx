@@ -1,53 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
-function changeColorHTML(color) {
-  const colors = {
-    blue: {
-      colorBasic: 'rgb(7, 87, 129)',
-      colorBasicLight: 'rgb(120, 198, 240)',
-      colorMedium: 'rgb(212, 225, 238)',
-      colorLight: 'rgb(241, 247, 252)',
-      colorHighlighted: 'rgb(139, 207, 4)',
-    },
-    red: {
-      colorBasic: 'rgb(0, 116, 139)', //'rgb(209, 3, 3)',
-      colorBasicLight: 'rgb(233, 201, 201)',
-      colorMedium: 'rgb(212, 225, 238)',
-      colorLight: 'rgb(241, 247, 252)',
-      colorHighlighted: 'rgb(41, 77, 97)', //'rgb(146, 47, 47)',
-    },
-    dark: {
-      colorBasic: 'rgb(31, 44, 58)',
-      colorBasicLight: 'rgb(84, 116, 139)',
-      colorMedium: 'rgb(212, 225, 238)',
-      colorLight: 'rgb(241, 247, 252)',
-      colorHighlighted: 'rgb(139, 207, 4)',
-    },
-  };
-
-  document.documentElement.style.setProperty(
-    '--color-basic',
-    colors[color].colorBasic
-  );
-  document.documentElement.style.setProperty(
-    '--color-basic-light',
-    colors[color].colorBasicLight
-  );
-  document.documentElement.style.setProperty(
-    '--color-medium',
-    colors[color].colorMedium
-  );
-  document.documentElement.style.setProperty(
-    '---color-light',
-    colors[color].colorLight
-  );
-  document.documentElement.style.setProperty(
-    '--color-highlighted',
-    colors[color].colorHighlighted
-  );
-}
-
 export default function Layout({ children }) {
   const [pageTitleState, setPageTitle] = useState(getInitPageTitle);
   const [changeTitleState, setChangeTitle] = useState(false);
@@ -64,6 +17,11 @@ export default function Layout({ children }) {
   function getInitPageColor() {
     const oldPageColor = JSON.parse(localStorage.getItem('pageColor'));
     return oldPageColor ? oldPageColor.pageColor : null;
+  }
+
+  function changeColorHTML(color) {
+    document.getElementsByTagName('html')[0].className = color;
+    //document.documentElement.style.setProperty('--color-basic','rgb(0, 116, 139)');
   }
 
   useEffect(() => {

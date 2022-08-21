@@ -62,7 +62,13 @@ export default function List({ displayList, imageRender }) {
                 <span>
                   <button
                     className="list__item-first__btn"
-                    onClick={() => showModal(true)}
+                    onClick={() =>
+                      showModal(
+                        displayList.type === 'marked'
+                          ? { itemMarked: true }
+                          : true
+                      )
+                    }
                   >
                     Hier Listeneintrag anlegenn
                   </button>

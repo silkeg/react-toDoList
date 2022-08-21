@@ -1,0 +1,239 @@
+@use '../base' as *;
+
+.list .btn-icon:hover {
+  background-color: white;
+}
+.list--done .list li:last-child .btn-icon:hover span {
+  top: -75%;
+}
+.btn-icon {
+  background-color: var(--btn-icon-bg);
+  border-radius: var(--btn-icon-corner);
+  margin-right: var(--margin-small);
+  cursor: pointer;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  white-space: nowrap;
+  border: none;
+  overflow: hidden;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: var(--btn-icon-bg-hover);
+    overflow: visible;
+    span {
+      display: none;
+    }
+    @media ($medium) {
+      span {
+        display: block;
+        width: auto;
+        height: auto;
+        right: rem(35);
+        top: 75%;
+        z-index: 2;
+      }
+    }
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+  }
+  &:disabled {
+    opacity: 30%;
+    cursor: default;
+    &:hover {
+      background-color: var(--btn-icon-bg);
+    }
+    span {
+      display: none;
+    }
+  }
+  span {
+    position: absolute;
+    background-color: var(--color-light);
+    border: rem(1) solid var(--color-light);
+    padding: var(--margin-small);
+    color: var(--color-basic);
+    border-radius: var(--btn-icon-corner);
+    z-index: -1;
+    font-size: rem(14);
+    box-shadow: 0 rem(1) rem(3) 0 rgba(0, 0, 0, 0.2);
+  }
+  &.btn-icon--delete::before,
+  &.btn-icon--delete::after {
+    width: rem(20);
+    height: rem(3);
+    left: rem(6);
+    margin-top: rem(-2);
+    background-color: var(--color-basic);
+    transform: rotate(0.15turn);
+  }
+  &.btn-icon--delete::before {
+    transform: rotate(-0.15turn);
+  }
+  &.btn-icon--done::before {
+    width: rem(10);
+    height: rem(3);
+    left: rem(7);
+    top: rem(17);
+    background-color: var(--color-basic);
+    transform: rotate(0.15turn);
+  }
+  &.btn-icon--done::after {
+    width: rem(16);
+    height: rem(3);
+    left: rem(11);
+    margin-top: rem(-3);
+    background-color: var(--color-basic);
+    transform: rotate(-0.15turn);
+  }
+
+  &.btn-icon--up::before {
+    top: rem(6);
+    left: rem(8);
+    border-style: solid;
+    border-width: 0 rem(8) rem(12);
+    border-color: transparent transparent var(--color-basic) transparent;
+  }
+  &.btn-icon--down::before {
+    top: rem(12);
+    left: rem(8);
+    border-style: solid;
+    border-width: rem(12) rem(8);
+    border-color: var(--color-basic) transparent transparent transparent;
+  }
+
+  &.btn-icon--edit::before {
+    top: rem(17);
+    left: rem(3);
+    border-style: solid;
+    border-width: rem(5);
+    border-color: var(--color-basic) transparent transparent transparent;
+    transform: rotate(0.15turn);
+  }
+  &.btn-icon--edit::after {
+    width: rem(15);
+    height: rem(10);
+    left: rem(11);
+    top: rem(9);
+    background-color: var(--color-basic);
+    transform: rotate(0.89turn);
+  }
+  &.btn-icon--add::before,
+  &.btn-icon--add::after {
+    width: rem(16);
+    height: rem(4);
+    left: rem(8);
+    top: rem(13);
+    background-color: var(--color-basic);
+  }
+  &.btn-icon--add::after {
+    transform: rotate(0.25turn);
+  }
+
+  &.btn-icon--move-todo::before {
+    top: rem(1);
+    left: rem(10);
+    border-style: solid;
+    border-width: rem(6) rem(7);
+    border-color: transparent transparent var(--color-basic) transparent;
+  }
+  &.btn-icon--move-todo::after {
+    width: rem(4);
+    height: rem(14);
+    left: rem(15);
+    top: rem(10);
+    background-color: var(--color-basic);
+  }
+  &.btn-icon--store::before {
+    left: rem(7);
+    top: rem(7);
+    width: rem(17);
+    height: rem(16);
+    background-color: var(--color-basic);
+  }
+  &.btn-icon--store::after {
+    top: rem(8);
+    left: rem(11);
+    width: rem(9);
+    height: rem(5);
+    background-color: white;
+  }
+  &.btn-icon--color::before {
+    left: rem(8);
+    top: rem(6);
+    width: rem(16);
+    height: rem(8);
+    background-color: var(--color-basic);
+    border-radius: rem(10) rem(10) 0 0;
+  }
+  &.btn-icon--color::after {
+    left: rem(8);
+    top: rem(17);
+    width: rem(16);
+    height: rem(8);
+    background-color: var(--color-highlighted);
+    border-radius: 0 0 rem(10) rem(10);
+  }
+
+  &.btn-icon--marked--active {
+    background-color: var(--color-highlighted);
+  }
+  &.btn-icon--marked--active:hover {
+    background-color: var(--color-highlighted-active);
+  }
+  &.btn-icon--marked::before {
+    top: rem(8);
+    left: rem(8);
+    width: rem(8);
+    height: rem(8);
+    border-radius: 50%;
+    border: rem(4) solid var(--color-basic);
+  }
+
+  &.btn-icon--add-marked::before {
+    top: rem(9);
+    left: rem(9);
+    width: rem(14);
+    height: rem(14);
+    border-radius: 50%;
+    background-color: var(--color-basic);
+  }
+  &.btn-icon--menue::before {
+    left: rem(8);
+    top: rem(6);
+    width: rem(16);
+    height: rem(11);
+    border: 0.3rem solid var(--color-basic);
+    border-width: 0.3rem 0;
+    transform: rotate(0deg);
+    transition: all 0.8s;
+  }
+  &.btn-icon--menue::after {
+    left: rem(8);
+    top: rem(14);
+    width: rem(16);
+    height: rem(8);
+    border-top: 0.3rem solid var(--color-basic);
+    transform: rotate(0deg);
+    transition: all 0.8s;
+  }
+}
+
+.sidebar:not(.sidebar--hidden) .btn-icon--menue::before {
+  border-bottom: none;
+  transform: rotate(45deg);
+  left: rem(3);
+  top: rem(11);
+  width: rem(20);
+}
+.sidebar:not(.sidebar--hidden) .btn-icon--menue::after {
+  transform: rotate(-45deg);
+  left: rem(9);
+  top: rem(11);
+  width: rem(20);
+}

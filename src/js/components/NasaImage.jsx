@@ -25,7 +25,7 @@ export default function NasaImage() {
     return () => {
       // react recommends using the CleanUp functionality
       // requestError 429 => too many requests - limit reached
-      getImage = null;
+      null;
     };
   }, []);
 

@@ -26,8 +26,9 @@ export default function Input({
   const inputRef = useRef();
 
   useEffect(() => {
+    setInputValue('');
     // checks what the user types and whether it corresponds to the specifications
-    // Timeout = retarder
+    // Timeout = retarder/debouncing
     // retarder -> maybe don't use input in the real project
     // the problem: if you return too quickly when editing, the item is not saved
     // and if you  creating a new item, you have to wait for saving
@@ -48,7 +49,7 @@ export default function Input({
       if (inputField.validity.valid) {
         setInputValue(currentInputValue);
       }
-    }, 600);
+    }, 500);
 
     return () => clearTimeout(idTimeout);
   }, [currentInputValue]);
