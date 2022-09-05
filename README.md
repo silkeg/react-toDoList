@@ -3,5 +3,5 @@ react and sass single page
 
 ```
 npm i   
-npm run
+npm run dev
 ```
